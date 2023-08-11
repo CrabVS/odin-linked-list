@@ -80,6 +80,21 @@ class LinkedList {
 
         node.nextNode = null;
     }
+
+    contains(value) {
+        let node = this.headNode;
+
+        while (node.nextNode !== null) {
+            if (node.value === value) return true;
+            node = node.nextNode;
+        }
+
+        if (node.value === value) return true;
+
+        return false;
+    }
+
+
 }
 
 const list = new LinkedList();
@@ -90,5 +105,4 @@ list.prepend('3');
 
 list.append('6');
 
-list.pop();
-console.log(list.tail());
+console.log(list.contains('6'));
