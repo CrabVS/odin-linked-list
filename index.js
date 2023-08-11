@@ -123,8 +123,25 @@ class LinkedList {
     }
 
     insertAt(value, index) {
+        if (index === 0) {
+            this.prepend(value);
+            return;
+        }
+
         let node = this.headNode;
 
+        for (let i = 0; i < index - 1; i++) {
+            node = node.nextNode;
+            if (node.nextNode === null) {
+                node.nextNode = new Node(value);
+                return;
+            }
+        }
+
+        let newNode = new Node(value);
+        let shiftedNode = node.nextNode;
+        node.nextNode = newNode;
+        newNode.nextNode = shiftedNode;
     }
 
 }
@@ -137,4 +154,5 @@ list.prepend('3');
 
 list.append('6');
 
-list.insertAt(1, 0);
+list.insertAt('new', 4);
+list.toString();
