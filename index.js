@@ -33,11 +33,29 @@ class LinkedList {
     }
 
     size() {
-        
+        let size = 1;
+        let node = this.headNode;
+
+        if (this.headNode === null) return 0;
+
+        while (node.nextNode !== null) {
+            size += 1;
+            node = node.nextNode;
+        }
+
+        return size;
     }
 
     head() {
         return this.headNode;
+    }
+
+    tail() {
+        let node = this.headNode;
+
+        while (node.nextNode !== null) node = node.nextNode
+
+        return node;
     }
 }
 
@@ -49,6 +67,6 @@ list.prepend('3');
 
 list.append('6');
 
-console.log(list.head());
+console.log(list.tail());
 
 //console.log(list);
