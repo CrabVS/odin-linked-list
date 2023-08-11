@@ -144,6 +144,25 @@ class LinkedList {
         newNode.nextNode = shiftedNode;
     }
 
+    removeAt(index) {
+        if (index === 0) {
+            this.headNode = this.headNode.nextNode;
+            return
+        }
+
+        let node = this.headNode;
+
+        for (let i = 0; i < index - 1; i++) {
+            if (node === null) return;
+            node = node.nextNode;
+        }
+
+        let afterNode = node.nextNode;
+
+        if (afterNode === null) return;
+        node.nextNode = afterNode.nextNode;
+    }
+
 }
 
 const list = new LinkedList();
@@ -154,5 +173,5 @@ list.prepend('3');
 
 list.append('6');
 
-list.insertAt('new', 4);
+list.removeAt(2);
 list.toString();
