@@ -68,6 +68,18 @@ class LinkedList {
 
         return node;
     }
+
+    pop() {
+        let node = this.headNode;
+        let lastNode = node.nextNode;
+
+        while (lastNode.nextNode !== null) {
+            node = lastNode;
+            lastNode = node.nextNode;
+        }
+
+        node.nextNode = null;
+    }
 }
 
 const list = new LinkedList();
@@ -78,4 +90,5 @@ list.prepend('3');
 
 list.append('6');
 
-console.log(list.at(1));
+list.pop();
+console.log(list.tail());
