@@ -105,6 +105,23 @@ class LinkedList {
         return null;
     }
 
+    toString() {
+        let node = this.headNode;
+        let nodeString = this.headNode.value;
+
+        if (this.headNode === null) {
+            console.log('null');
+            return;
+        };
+
+        while (node.nextNode !== null) {
+            nodeString = `${nodeString} -> ${node.nextNode.value}`;
+            node = node.nextNode;
+        }
+
+        console.log(`${nodeString} -> null`);
+    }
+
 }
 
 const list = new LinkedList();
@@ -115,4 +132,4 @@ list.prepend('3');
 
 list.append('6');
 
-console.log(list.find('6'));
+list.toString();
