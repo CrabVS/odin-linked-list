@@ -84,16 +84,28 @@ class LinkedList {
     contains(value) {
         let node = this.headNode;
 
-        while (node.nextNode !== null) {
+        while (node.nextNode !== null || node.value === value) {
             if (node.value === value) return true;
             node = node.nextNode;
         }
 
-        if (node.value === value) return true;
-
         return false;
     }
 
+    find(value) {
+        let node = this.headNode;
+        let counter = 0;
+
+        while (node.nextNode !== null) {
+            if (node.value === value) return counter;
+            counter += 1;
+            node = node.nextNode;
+        }
+
+        if (node.value === value) return counter;
+
+        return null;
+    }
 
 }
 
@@ -106,3 +118,5 @@ list.prepend('3');
 list.append('6');
 
 console.log(list.contains('6'));
+console.log(list.find('6'));
+console.log(list.at(3));
