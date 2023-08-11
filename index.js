@@ -57,6 +57,17 @@ class LinkedList {
 
         return node;
     }
+
+    at(index) {
+        let node = this.headNode;
+
+        for (let i = 0; i < index; i++) {
+            node = node.nextNode;
+            if (node.nextNode === null && (i + 1) !== index) return 'Error, index out of range';
+        }
+
+        return node;
+    }
 }
 
 const list = new LinkedList();
@@ -67,6 +78,4 @@ list.prepend('3');
 
 list.append('6');
 
-console.log(list.tail());
-
-//console.log(list);
+console.log(list.at(1));
