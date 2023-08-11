@@ -63,7 +63,7 @@ class LinkedList {
 
         for (let i = 0; i < index; i++) {
             node = node.nextNode;
-            if (node.nextNode === null && (i + 1) !== index) return 'Error, index out of range';
+            if (node === null) return 'Error, index out of range';
         }
 
         return node;
@@ -122,6 +122,11 @@ class LinkedList {
         console.log(`${nodeString} -> null`);
     }
 
+    insertAt(value, index) {
+        let node = this.headNode;
+
+    }
+
 }
 
 const list = new LinkedList();
@@ -132,4 +137,4 @@ list.prepend('3');
 
 list.append('6');
 
-list.toString();
+list.insertAt(1, 0);
